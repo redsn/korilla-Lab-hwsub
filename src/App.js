@@ -9,13 +9,13 @@ export default function App() {
 
   const findPatron = (search) => {
     setPatron(search)
-    console.log(search);
   }
   return (
     <div className="App">
       <h1>Korrilla Receipts</h1>
+      {console.log(patron)}
       < Form findPatron={findPatron} />
-      < Receipts receiptData={Data} />
+      < Receipts receiptData={Data} patron={patron} />
     </div>
   );
 }
