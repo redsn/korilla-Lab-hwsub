@@ -1,12 +1,24 @@
 import {useState} from "react"
 
-export default function Form (){
-    const [state, setState] = useState(null);
+export default function Form ({findPatron}){
+    const [state, setState] = useState({
+        search: ''
+    });
+
+    const changeEvent = (e) => {
+        setState({search: e.target.value});
+    }
+
+    const submitEvent = (e) => {
+        e.preventDefault();
+        findPatron(state.search)
+    }
 
     return(
         <>
-        <form>
-            <input type="text" name="" value="" onChange="" />
+        <form onSubmit={submitEvent}>
+            <input type="text" value={state.search} onChange={changeEvent} />
+            <input type="submit" value="Search" />
         </form>
         </>
     )
